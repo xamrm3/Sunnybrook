@@ -44,7 +44,6 @@ function App() {
         <div value={buttonInputs.Report}> 
           <label>Report Type: </label>
           <input type="radio" value="Basic" name="report" 
-            checked={buttonInputs.report === "Basic"}
             onChange={handleChangeButton} /> Basic
           <input type="radio" value="Drugs" name="report"  
             onChange={handleChangeButton} /> Drugs summary
@@ -52,6 +51,14 @@ function App() {
             onChange={handleChangeButton} /> Genes summary
           <input type="radio" value="Final" name="report" 
             onChange={handleChangeButton} /> Final summary
+        </div>
+
+        <div value={buttonInputs.Sample}> 
+          <label>Sample Type: </label>
+          <input type="radio" value="bam" name="sample" 
+            onChange={handleChangeButton} /> bam
+          <input type="radio" value="vcf" name="sample"  
+            onChange={handleChangeButton} /> vcf
         </div>
 
         <label>Method: </label>
@@ -66,7 +73,6 @@ function App() {
             <option value="COMT">COMT</option>
             <option value="ABCD">ABCD</option>
           </select>
-        
 
         <label> Drug </label>
           <select value={selectInputs.drug} onChange={handleChangeSelect}>
@@ -74,13 +80,27 @@ function App() {
             <option value="Some drugs">Some drugs</option>
           </select>
         
+        <div value={buttonInputs.Variant}> 
+          <label>Variant Type: </label>
+          <input type="radio" value="actionable" name="variant" 
+            onChange={handleChangeButton} /> Actionable
+          <input type="radio" value="potential" name="variant"  
+            onChange={handleChangeButton} /> Potential
+        </div>
+
+        <div value={buttonInputs.Reference}> 
+          <label>Reference: </label>
+          <input type="radio" value="GRCh37" name="reference" 
+            onChange={handleChangeButton} /> GRCh37
+          <input type="radio" value="GRCh38" name="reference"  
+            onChange={handleChangeButton} /> GRCh38
+        </div>
 
         <label> Input path </label>
           <select value={selectInputs.path} onChange={handleChangeSelect}>
             <option value="Path 1">Path 1</option>
             <option value="Path 2">Path 2</option>
           </select>
-        
 
         <label>Operator Name: </label>
          <input 
@@ -88,11 +108,9 @@ function App() {
          name="OpName"
          value={typeInputs.OpName || ""}
          onChange={handleChangeType} />
-        
 
         <input type="submit"/>
       </form>
-    
     </div>
   );
 }
