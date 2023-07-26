@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import { useState } from 'react';
 
@@ -22,64 +21,74 @@ function App() {
   const handleChangeButton = (event) => {
     const name = event.target.name;
     const value = event.target.value;
-    setSelectInputs(values => ({...values, [name]: value}))
+    setButtonInputs(values => ({...values, [name]: value}))
   }
  
   const handleSubmit = (event) => {
     event.preventDefault();
     alert(typeInputs)
     alert(selectInputs)
+    alert(buttonInputs)
   }
 
   return (
     <div className="App">
       <form onSubmit={handleSubmit}>
-        <label>Sample ID:
+        <label>Sample ID: </label>
          <input 
          type="text"
          name="ID"
          value={typeInputs.ID || ""}
          onChange={handleChangeType} />
-        </label>
 
-        
+        <div value={buttonInputs.Report}> 
+          <label>Report Type: </label>
+          <input type="radio" value="Basic" name="report" 
+            checked={buttonInputs.report === "Basic"}
+            onChange={handleChangeButton} /> Basic
+          <input type="radio" value="Drugs" name="report"  
+            onChange={handleChangeButton} /> Drugs summary
+          <input type="radio" value="Genes" name="report" 
+            onChange={handleChangeButton} /> Genes summary
+          <input type="radio" value="Final" name="report" 
+            onChange={handleChangeButton} /> Final summary
+        </div>
 
-        <label>Method:
+        <label>Method: </label>
          <input 
          type="text"
          name="method"
          value={typeInputs.method || ""}
          onChange={handleChangeType} />
-        </label>
 
-        <label> Pgx gene panel
+        <label> Pgx gene panel </label>
           <select value={selectInputs.panel} onChange={handleChangeSelect}>
             <option value="COMT">COMT</option>
             <option value="ABCD">ABCD</option>
           </select>
-        </label>
+        
 
-        <label> Drug
+        <label> Drug </label>
           <select value={selectInputs.drug} onChange={handleChangeSelect}>
             <option value="All drugs">All drugs</option>
             <option value="Some drugs">Some drugs</option>
           </select>
-        </label>
+        
 
-        <label> Input path
+        <label> Input path </label>
           <select value={selectInputs.path} onChange={handleChangeSelect}>
             <option value="Path 1">Path 1</option>
             <option value="Path 2">Path 2</option>
           </select>
-        </label>
+        
 
-        <label>Operator Name:
+        <label>Operator Name: </label>
          <input 
          type="text"
          name="OpName"
          value={typeInputs.OpName || ""}
          onChange={handleChangeType} />
-        </label>
+        
 
         <input type="submit"/>
       </form>
