@@ -44,6 +44,17 @@ function App() {
 
   return (
     <div className="App">
+
+      <header>
+        <h1>Pharmacogenetics Testing with Pgxtools</h1>
+        <p>The Pgx tools is a Bioformatics pipeline for Pharmacogenetics testing with cloud-native technologies. The pipeline applies a predefined set of genetic variants 
+          with clinical significance (actionable / potential) to the genetic / genomic test result of a patient. A report is generated to predict drug response and to 
+          provide advice on the patient's personalized drug treatement plan.</p>
+        <p>A user manual <a href="">Pgxtools.Manual.md</a> can be found right next to this pipeline (Pgxtools.ipymb).</p>
+      </header>
+
+      <h2>Pharmacogenetics Testing</h2>
+
       <form onSubmit={handleSubmit}>
         
         <label>Sample ID: </label>
