@@ -2,44 +2,27 @@ import './App.css';
 import { useState } from 'react';
 
 function App() {
-  const [typeInputs, setInputs] = useState({})
-  const [selectInputs, setSelectInputs] = useState({})
-  const [buttonInputs, setButtonInputs] = useState({})
+  const [inputs, setInputs] = useState({})
 
-  const handleChangeType = (event) => {
+  const handleChange = (event) => {
     const name = event.target.name;
     const value = event.target.value;
     setInputs(values => ({...values, [name]: value}))
-  }
-
-  const handleChangeSelect = (event) => {
-    const name = event.target.name;
-    const value = event.target.value;
-    setSelectInputs(values => ({...values, [name]: value}))
-  }
-
-  const handleChangeButton = (event) => {
-    const name = event.target.name;
-    const value = event.target.value;
-    setButtonInputs(values => ({...values, [name]: value}))
   }
  
   const handleSubmit = (event) => {
     event.preventDefault();
 
     // only possible input for Reference
-    buttonInputs.Reference = "GRCh38"
+    inputs.Reference = "GRCh38"
 
-    //check if typeInputs, selectInputs and buttonInputs have all the required information
-    if(Object.keys(typeInputs).length !== 5 || Object.keys(selectInputs).length !== 3 || Object.keys(buttonInputs).length !== 4 ||
-      selectInputs.Panel === "" || selectInputs.Drug === "" || selectInputs.Path === ""){
+    //check if inputs, selectInputs and buttonInputs have all the required information
+    if(Object.keys(inputs).length !== 12 || inputs.Panel === "" || inputs.Drug === "" || inputs.Path === "" || inputs.Method === ""){
       alert("Please fill in all the fields.")
       return;
     }
 
-    console.log(typeInputs)
-    console.log(selectInputs)
-    console.log(buttonInputs)
+    console.log(inputs)
   }
 
   return (
@@ -61,28 +44,28 @@ function App() {
          <input 
          type="text"
          name="ID"
-         value={typeInputs.ID || ""}
-         onChange={handleChangeType} />
+         value={inputs.ID || ""}
+         onChange={handleChange} />
 
-        <div value={buttonInputs.Report}> 
+        <div value={inputs.Report}> 
           <label>Report Type: </label> <br/>
           <input type="radio" value="Variants" name="Report" 
-            onChange={handleChangeButton} /> Variants <br/>
+            onChange={handleChange} /> Variants <br/>
           <input type="radio" value="ClinInterp" name="Report"  
-            onChange={handleChangeButton} /> Variants and Clinical Interpretation
+            onChange={handleChange} /> Variants and Clinical Interpretation
         </div>
 
-        <div value={buttonInputs.Sample}> 
+        <div value={inputs.Sample}> 
           <label>Sample Type: </label> <br/>
           <input type="radio" value="bam" name="Sample" 
-            onChange={handleChangeButton} /> bam <br/>
+            onChange={handleChange} /> bam <br/>
           <input type="radio" value="vcf" name="Sample"  
-            onChange={handleChangeButton} /> vcf
+            onChange={handleChange} /> vcf
         </div>
 
         <div>
           <label> Method: </label>
-            <input type="text" name="Method" list="methods" placeholder="Other" onChange={handleChangeType}/>
+            <input type="text" name="Method" list="methods" placeholder="Other" onChange={handleChange}/>
             <datalist id="methods" name="Method">
               <option value="Illumina Short Read"></option>
               <option value="Illumina Long Read"></option>
@@ -93,7 +76,7 @@ function App() {
         
         <div>
           <label> Pgx gene panel: </label>
-            <select name="Panel" value={selectInputs.Panel} onChange={handleChangeSelect}>
+            <select name="Panel" value={inputs.Panel} onChange={handleChange}>
               <option value=""></option>
               <option value="COMT">COMT</option>
               <option value="ABCD">ABCD</option>
@@ -102,30 +85,30 @@ function App() {
 
         <div>
           <label> Drug: </label>
-            <select name="Drug" value={selectInputs.Drug} onChange={handleChangeSelect}>
+            <select name="Drug" value={inputs.Drug} onChange={handleChange}>
               <option value=""></option>
               <option value="All drugs">All drugs</option>
               <option value="Some drugs">Some drugs</option>
             </select>
         </div>
         
-        <div value={buttonInputs.Variant}> 
+        <div value={inputs.Variant}> 
           <label>Variant Type: </label> <br/>
           <input type="radio" value="Actionable" name="Variant" 
-            onChange={handleChangeButton} /> Actionable <br/>
+            onChange={handleChange} /> Actionable <br/>
           <input type="radio" value="All" name="Variant"  
-            onChange={handleChangeButton} /> All Relevant
+            onChange={handleChange} /> All Relevant
         </div>
 
-        <div value={buttonInputs.Reference}> 
+        <div value={inputs.Reference}> 
           <label>Reference: </label> <br/>
           <input type="radio" value="GRCh38" name="Reference" checked={true} 
-            onChange={handleChangeButton} /> GRCh38
+            onChange={handleChange} /> GRCh38
         </div>
         
         <div>
           <label> Input path: </label>
-            <select name="Path" value={selectInputs.Path} onChange={handleChangeSelect}>
+            <select name="Path" value={inputs.Path} onChange={handleChange}>
               <option value=""></option>
               <option value="Path 1">Path 1</option>
               <option value="Path 2">Path 2</option>
@@ -137,8 +120,8 @@ function App() {
           <input 
           type="text"
           name="OpName"
-          value={typeInputs.OpName || ""}
-          onChange={handleChangeType} />
+          value={inputs.OpName || ""}
+          onChange={handleChange} />
         </div>
 
         <div>
@@ -146,8 +129,8 @@ function App() {
           <input 
           type="text"
           name="OpInst"
-          value={typeInputs.OpInst || ""}
-          onChange={handleChangeType} />
+          value={inputs.OpInst || ""}
+          onChange={handleChange} />
         </div>
 
         <div>
@@ -155,8 +138,8 @@ function App() {
           <input 
           type="text"
           name="InstAddr"
-          value={typeInputs.InstAddr || ""}
-          onChange={handleChangeType} />
+          value={inputs.InstAddr || ""}
+          onChange={handleChange} />
         </div>
         
         <br/>
