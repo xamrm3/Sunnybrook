@@ -31,7 +31,7 @@ function App() {
 
     //this should be better
     //check if typeInputs, selectInputs and buttonInputs are filled
-    if(typeInputs.ID === undefined || typeInputs.Method === undefined || typeInputs.OpName === undefined || 
+    if(typeInputs.ID === undefined || typeInputs.OpName === undefined || 
       buttonInputs.Report === undefined || buttonInputs.Sample === undefined || buttonInputs.Variant === undefined || buttonInputs.Reference === undefined || 
       selectInputs.Panel === undefined || selectInputs.Drug === undefined || selectInputs.Path === undefined ||
       selectInputs.Panel === "" || selectInputs.Drug === "" || selectInputs.Path === ""){
@@ -62,15 +62,6 @@ function App() {
             onChange={handleChangeButton} /> Variants <br/>
           <input type="radio" value="ClinInterp" name="Report"  
             onChange={handleChangeButton} /> Variants and Clinical Interpretation
-
-          {/* <input type="radio" value="Basic" name="Report" 
-            onChange={handleChangeButton} /> Basic
-          <input type="radio" value="Drugs" name="Report"  
-            onChange={handleChangeButton} /> Drugs summary
-          <input type="radio" value="Genes" name="Report" 
-            onChange={handleChangeButton} /> Genes summary
-          <input type="radio" value="Final" name="Report" 
-            onChange={handleChangeButton} /> Final summary */}
         </div>
 
         <div value={buttonInputs.Sample}> 
@@ -80,15 +71,16 @@ function App() {
           <input type="radio" value="vcf" name="Sample"  
             onChange={handleChangeButton} /> vcf
         </div>
-        
-        {/* TODO */}
+
         <div>
-          <label>Method: </label>
-          <input 
-          type="text"
-          name="Method"
-          value={typeInputs.Method || ""}
-          onChange={handleChangeType} />
+          <label> Method: </label>
+            <input type="text" name="Method" list="methods" onChange={handleChangeType}/>
+            <datalist id="methods" name="Method">
+              <option value="Illumina Short Read"></option>
+              <option value="Illumina Long Read"></option>
+              <option value="Pacbio Short Read"></option>
+              <option value="Pacbio Long Read"></option>
+            </datalist>
         </div>
         
         <div>
