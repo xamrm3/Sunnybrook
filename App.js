@@ -27,18 +27,15 @@ function App() {
   const handleSubmit = (event) => {
     event.preventDefault();
 
+    // only possible input for Reference
     buttonInputs.Reference = "GRCh38"
 
-    //this should be better
-    //check if typeInputs, selectInputs and buttonInputs are filled
-    if(typeInputs.ID === undefined || typeInputs.OpName === undefined || 
-      buttonInputs.Report === undefined || buttonInputs.Sample === undefined || buttonInputs.Variant === undefined || buttonInputs.Reference === undefined || 
-      selectInputs.Panel === undefined || selectInputs.Drug === undefined || selectInputs.Path === undefined ||
+    //check if typeInputs, selectInputs and buttonInputs have all the required information
+    if(Object.keys(typeInputs).length !== 5 || Object.keys(selectInputs).length !== 3 || Object.keys(buttonInputs).length !== 4 ||
       selectInputs.Panel === "" || selectInputs.Drug === "" || selectInputs.Path === ""){
       alert("Please fill in all the fields.")
       return;
     }
-
 
     console.log(typeInputs)
     console.log(selectInputs)
@@ -74,7 +71,7 @@ function App() {
 
         <div>
           <label> Method: </label>
-            <input type="text" name="Method" list="methods" onChange={handleChangeType}/>
+            <input type="text" name="Method" list="methods" placeholder="Other" onChange={handleChangeType}/>
             <datalist id="methods" name="Method">
               <option value="Illumina Short Read"></option>
               <option value="Illumina Long Read"></option>
@@ -147,7 +144,7 @@ function App() {
           <input 
           type="text"
           name="InstAddr"
-          value={typeInputs.InstAddr  || ""}
+          value={typeInputs.InstAddr || ""}
           onChange={handleChangeType} />
         </div>
         
