@@ -1,7 +1,7 @@
 import './App.css';
 import { useState } from 'react';
 
-function App() {
+function Form() {
   const [inputs, setInputs] = useState({})
 
   const handleChange = (event) => {
@@ -26,7 +26,7 @@ function App() {
   }
 
   return (
-    <div className="App">
+    <div className="Form">
 
       <header>
         <h1>Pharmacogenetics Testing with Pgxtools</h1>
@@ -150,4 +150,4 @@ function App() {
   );
 }
 
-export default App;
+export default Form;
