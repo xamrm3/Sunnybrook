@@ -1,10 +1,12 @@
 import './Register.css'
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 function Register() {
 
-    const [currentView, setCurrentView] = useState("view1");
     const [inputs, setInputs] = useState({});
+    const navigate = useNavigate();
+
 
     const handleSubmit = () => {
         if (Object.keys(inputs).length !== 3) {
@@ -14,7 +16,7 @@ function Register() {
         
         // check if inputs are valid
         console.log(inputs);
-        setCurrentView("view2");
+        navigate("/Form");
     };
 
     const handleChange = (event) => {
@@ -22,8 +24,10 @@ function Register() {
         const value = event.target.value;
         setInputs(values => ({...values, [name]: value}))
       }
-    
-    const ViewOne = () => (
+
+
+    return (
+       
         <div className="Form">
             <form onSubmit={ handleSubmit }>
                 <label>Name: </label>
@@ -35,25 +39,12 @@ function Register() {
                 <label>Institution: </label>
                 <input type="text" name="Inst" value={inputs.Inst || ""} onChange={handleChange} /> <br/>
 
+                <br />
+
                 <input type="submit" />
             </form>
         </div>
-    );
-    
-    const ViewTwo = () => (
-        <div>
-            <h1>View 2</h1>
-        </div>
-    );
 
-    return (
-        <div>
-        {
-          currentView === "view1" ? 
-          <ViewOne onClick={page => setCurrentView(page)} /> : 
-          <ViewTwo onClick={page => setCurrentView(page)} />
-       }
-      </div>
     )
 }
 

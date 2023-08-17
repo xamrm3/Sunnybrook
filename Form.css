@@ -1,0 +1,8 @@
+.Form {
+    text-align: left;
+    padding: 25px;
+  }
+  
+  input[type="radio"] {
+    vertical-align: middle;
+  }
