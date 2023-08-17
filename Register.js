@@ -6,11 +6,17 @@ function Register() {
 
     const [inputs, setInputs] = useState({});
     const navigate = useNavigate();
+    const emailRe = new RegExp(/^[A-Za-z0-9.]+@[A-Za-z]+.[A-Za-z]+$/, "gm");
 
+    const handleSubmit = (event) => {
+        event.preventDefault();
 
-    const handleSubmit = () => {
-        if (Object.keys(inputs).length !== 3) {
+        if (Object.keys(inputs).length !== 3 || Object.values(inputs).indexOf("") > -1) {
             alert("Please fill in all the fields.")
+            return;
+        }
+        if (!emailRe.test(inputs.Email)) {
+            alert("Please enter a valid email.")
             return;
         }
         
@@ -24,7 +30,6 @@ function Register() {
         const value = event.target.value;
         setInputs(values => ({...values, [name]: value}))
       }
-
 
     return (
        

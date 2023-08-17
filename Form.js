@@ -2,7 +2,8 @@ import './Form.css';
 import { useState } from 'react';
 
 function Form() {
-  const [inputs, setInputs] = useState({})
+  
+    const [inputs, setInputs] = useState({})
 
   const handleChange = (event) => {
     const name = event.target.name;
@@ -17,7 +18,7 @@ function Form() {
     inputs.Reference = "GRCh38"
 
     //check if inputs, selectInputs and buttonInputs have all the required information
-    if(Object.keys(inputs).length !== 12 || inputs.Panel === "" || inputs.Drug === "" || inputs.Path === "" || inputs.Method === ""){
+    if(Object.keys(inputs).length !== 12 || Object.values(inputs).indexOf("") > -1){
       alert("Please fill in all the fields.")
       return;
     }
