@@ -3,12 +3,18 @@ import { useState } from 'react';
 
 function Form() {
   
-    const [inputs, setInputs] = useState({})
+  const [inputs, setInputs] = useState({})
 
   const handleChange = (event) => {
     const name = event.target.name;
     const value = event.target.value;
     setInputs(values => ({...values, [name]: value}))
+  }
+
+  const trimOnBlur = (event) => {
+    const name = event.target.name;
+    const value = event.target.value;
+    inputs[name] = value.trim();
   }
  
   const handleSubmit = (event) => {
@@ -18,7 +24,7 @@ function Form() {
     inputs.Reference = "GRCh38"
 
     //check if inputs, selectInputs and buttonInputs have all the required information
-    if(Object.keys(inputs).length !== 12 || Object.values(inputs).indexOf("") > -1){
+    if(Object.keys(inputs).length !== 12 || Object.values(inputs).some((x) => x === "")){
       alert("Please fill in all the fields.")
       return;
     }
@@ -42,11 +48,7 @@ function Form() {
       <form onSubmit={handleSubmit}>
         
         <label>Sample ID: </label>
-         <input 
-         type="text"
-         name="ID"
-         value={inputs.ID || ""}
-         onChange={handleChange} />
+        <input type="text" name="ID" value={inputs.ID || ""} onChange={handleChange} onBlur={trimOnBlur}/>
 
         <div value={inputs.Report}> 
           <label>Report Type: </label> <br/>
@@ -118,29 +120,17 @@ function Form() {
 
         <div>
           <label>Operator Name: </label>
-          <input 
-          type="text"
-          name="OpName"
-          value={inputs.OpName || ""}
-          onChange={handleChange} />
+          <input type="text" name="OpName" value={inputs.OpName || ""} onChange={handleChange} onBlur={trimOnBlur}/>
         </div>
 
         <div>
           <label>Operator Institution: </label>
-          <input 
-          type="text"
-          name="OpInst"
-          value={inputs.OpInst || ""}
-          onChange={handleChange} />
+          <input type="text" name="OpInst" value={inputs.OpInst || ""} onChange={handleChange} onBlur={trimOnBlur}/>
         </div>
 
         <div>
           <label>Institution Address: </label>
-          <input 
-          type="text"
-          name="InstAddr"
-          value={inputs.InstAddr || ""}
-          onChange={handleChange} />
+          <input type="text" name="InstAddr" value={inputs.InstAddr || ""} onChange={handleChange} onBlur={trimOnBlur}/>
         </div>
         
         <br/>
