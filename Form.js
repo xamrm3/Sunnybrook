@@ -23,7 +23,7 @@ function Form() {
     // only possible input for Reference
     inputs.Reference = "GRCh38"
 
-    //check if inputs, selectInputs and buttonInputs have all the required information
+    //check if inputs have all the required information and there is no empty input
     if(Object.keys(inputs).length !== 12 || Object.values(inputs).some((x) => x === "")){
       alert("Please fill in all the fields.")
       return;
@@ -52,23 +52,26 @@ function Form() {
 
         <div value={inputs.Report}> 
           <label>Report Type: </label> <br/>
-          <input type="radio" value="Variants" name="Report" 
-            onChange={handleChange} /> Variants <br/>
-          <input type="radio" value="ClinInterp" name="Report"  
-            onChange={handleChange} /> Variants and Clinical Interpretation
+          <input id ="RT1" type="radio" value="Variants" name="Report" onChange={handleChange} />
+          <label htmlFor="RT1">Variants</label> <br/>
+
+          <input id ="RT2" type="radio" value="ClinInterp" name="Report" onChange={handleChange} /> 
+          <label htmlFor="RT2">Variants and Clinical Interpretation</label> <br/>
+
         </div>
 
         <div value={inputs.Sample}> 
           <label>Sample Type: </label> <br/>
-          <input type="radio" value="bam" name="Sample" 
-            onChange={handleChange} /> bam <br/>
-          <input type="radio" value="vcf" name="Sample"  
-            onChange={handleChange} /> vcf
+          <input id ="ST1" type="radio" value="BAM" name="Sample" onChange={handleChange} />
+          <label htmlFor="ST1">BAM</label> <br/>
+
+          <input id="ST2"type="radio" value="VCF" name="Sample" onChange={handleChange} /> 
+          <label htmlFor="ST2">VCF</label> <br/>
         </div>
 
         <div>
           <label> Method: </label>
-            <input type="text" name="Method" list="methods" placeholder="Other" onChange={handleChange}/>
+            <input type="text" name="Method" list="methods" placeholder="Other" onChange={handleChange} onBlur={trimOnBlur}/>
             <datalist id="methods" name="Method">
               <option value="Illumina Short Read"></option>
               <option value="Illumina Long Read"></option>
@@ -97,16 +100,17 @@ function Form() {
         
         <div value={inputs.Variant}> 
           <label>Variant Type: </label> <br/>
-          <input type="radio" value="Actionable" name="Variant" 
-            onChange={handleChange} /> Actionable <br/>
-          <input type="radio" value="All" name="Variant"  
-            onChange={handleChange} /> All Relevant
+          <input id="VT1" type="radio" value="Actionable" name="Variant" onChange={handleChange} />
+          <label htmlFor="VT1">Actionable</label> <br/>
+
+          <input id="VT2"type="radio" value="All" name="Variant"  onChange={handleChange} />
+          <label htmlFor="VT2">All Relevant</label> <br/>
         </div>
 
         <div value={inputs.Reference}> 
           <label>Reference: </label> <br/>
-          <input type="radio" value="GRCh38" name="Reference" checked={true} 
-            onChange={handleChange} /> GRCh38
+          <input id="Rf1" type="radio" value="GRCh38" name="Reference" checked={true} onChange={handleChange} />
+          <label htmlFor="Rf1">GRCh38</label>
         </div>
         
         <div>
