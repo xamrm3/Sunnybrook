@@ -6,7 +6,7 @@ function Register() {
 
   const [inputs, setInputs] = useState({});
   const navigate = useNavigate();
-  const emailRe = new RegExp(/^[A-Za-z0-9.]+@[A-Za-z]+.[A-Za-z]+$/, "gm");
+  const emailRe = new RegExp(/^([\w\d!#$%\^&*+\-=?_`{|}~]+\.)*[\w\d]+@[\w]+\.[\w]+$/, "gm");
 
   const handleChange = (event) => {
     const name = event.target.name;
@@ -23,10 +23,13 @@ function Register() {
   const handleSubmit = (event) => {
     event.preventDefault();
 
+    //check if inputs have all the required information and there is no empty input
     if (Object.keys(inputs).length !== 3 || Object.values(inputs).some((x) => x === "")) {
       alert("Please fill in all the fields.")
       return;
     }
+
+    //check if email is valid
     if (!emailRe.test(inputs.Email)) {
       alert("Please enter a valid email.")
       return;
