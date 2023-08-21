@@ -47,22 +47,23 @@ function Register() {
         <h1>Register for Pharmacogenetics Testing with Pgxtools</h1>
       </header>
 
-      <form onSubmit={handleSubmit}>
-        <label>Name: </label>
-        <input type="text" name="Name" value={inputs.Name || ""} onChange={handleChange} onBlur={trimOnBlur}/> <br/>
-        
-        <label>Email: </label>
-        <input type="text" name="Email" value={inputs.Email || ""} onChange={handleChange} onBlur={trimOnBlur}/> <br/>
-        
-        <label>Institution: </label>
-        <input type="text" name="Inst" value={inputs.Inst || ""} onChange={handleChange} onBlur={trimOnBlur}/> <br/>
+      <div className="centre">
+        <form onSubmit={handleSubmit}>
+          <label>Name: </label> <br/>
+          <input type="text" name="Name" value={inputs.Name || ""} onChange={handleChange} onBlur={trimOnBlur}/> <br/>
+          
+          <label>Email: </label> <br/>
+          <input type="text" name="Email" value={inputs.Email || ""} onChange={handleChange} onBlur={trimOnBlur}/> <br/>
+          
+          <label>Institution: </label> <br/>
+          <input type="text" name="Inst" value={inputs.Inst || ""} onChange={handleChange} onBlur={trimOnBlur}/> <br/>
 
-        <br />
+          <br />
 
-        <input type="submit" />
-      </form>
+          <input type="submit" value="Register"/>
+        </form>
+      </div>
     </div>
-
   )
 }
 

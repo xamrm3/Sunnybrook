@@ -70,7 +70,7 @@ function Form() {
         </div>
 
         <div>
-          <label> Method: </label>
+          <label>Method: </label>
             <input type="text" name="Method" list="methods" placeholder="Other" onChange={handleChange} onBlur={trimOnBlur}/>
             <datalist id="methods" name="Method">
               <option value="Illumina Short Read"></option>
@@ -81,7 +81,7 @@ function Form() {
         </div>
         
         <div>
-          <label> Pgx gene panel: </label>
+          <label>Pgx gene panel: </label>
             <select name="Panel" value={inputs.Panel} onChange={handleChange}>
               <option value=""></option>
               <option value="COMT">COMT</option>
@@ -90,7 +90,7 @@ function Form() {
         </div>
 
         <div>
-          <label> Drug: </label>
+          <label>Drug: </label>
             <select name="Drug" value={inputs.Drug} onChange={handleChange}>
               <option value=""></option>
               <option value="All drugs">All drugs</option>
@@ -103,7 +103,7 @@ function Form() {
           <input id="VT1" type="radio" value="Actionable" name="Variant" onChange={handleChange} />
           <label htmlFor="VT1">Actionable</label> <br/>
 
-          <input id="VT2"type="radio" value="All" name="Variant"  onChange={handleChange} />
+          <input id="VT2"type="radio" value="All" name="Variant" onChange={handleChange} />
           <label htmlFor="VT2">All Relevant</label> <br/>
         </div>
 
@@ -114,7 +114,7 @@ function Form() {
         </div>
         
         <div>
-          <label> Input path: </label>
+          <label>Input path: </label>
             <select name="Path" value={inputs.Path} onChange={handleChange}>
               <option value=""></option>
               <option value="Path 1">Path 1</option>
@@ -139,7 +139,7 @@ function Form() {
         
         <br/>
         
-        <input type="submit"/>
+        <input type="submit" value="Submit"/>
       </form>
     </div>
   );

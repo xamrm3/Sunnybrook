@@ -1,3 +1,11 @@
-.Register {
-    text-align: left;
+.Form {
+  text-align: center;
+  padding: 25px;
+}
+
+.centre {
+  margin: auto;
+  width: 20%;
+  /* border: 3px solid #2149ad; */
+  padding: 10px;
 }
