@@ -3,23 +3,38 @@
   padding: 25px;
 }
 
+.inputs {
+  border: 1px solid #2149ad;
+  width: 450px;
+}
+
+.formText {
+  width: fill;
+  
+}
+
+#textLabel{
+  float: left;
+  width: 35%;
+  height: 100%;
+  background-color: green;
+}
+
+#textInput{
+  float: left;
+  width: 65%;
+  height: 100%;
+  background-color: blue;
+}
+
 .formButton {
   background-color: #4CAF50;
   border: none;
   color: white;
-  width: 150px;
+  width: 35%;
   padding: 15px;
 }
 
 .formButton:hover {
   cursor: pointer;
-}
-
-.inputs {
-  border: 1px solid #2149ad;
-  width: 30%;
-}
-
-.formText {
-  width: auto;
 }

@@ -47,9 +47,10 @@ function Form() {
 
       <div className="inputs">
         <form onSubmit={handleSubmit}>
-          
-          <label>Sample ID: </label>
-          <input type="text" name="ID" className="formText" value={inputs.ID || ""} onChange={handleChange} onBlur={trimOnBlur}/>
+          <div>
+            <div id="textLabel"><label htmlFor="SID">Sample ID: </label></div>
+            <div id="textInput"><input id="SID" type="text" name="ID" className="formText" value={inputs.ID || ""} onChange={handleChange} onBlur={trimOnBlur}/></div>
+          </div>
 
           <div value={inputs.Report}> 
             <label>Report Type: </label> <br/>
@@ -66,7 +67,7 @@ function Form() {
             <input id ="ST1" type="radio" value="BAM" name="Sample" onChange={handleChange} />
             <label htmlFor="ST1">BAM</label> <br/>
 
-            <input id="ST2"type="radio" value="VCF" name="Sample" onChange={handleChange} /> 
+            <input id="ST2" type="radio" value="VCF" name="Sample" onChange={handleChange} /> 
             <label htmlFor="ST2">VCF</label> <br/>
           </div>
 
@@ -104,7 +105,7 @@ function Form() {
             <input id="VT1" type="radio" value="Actionable" name="Variant" onChange={handleChange} />
             <label htmlFor="VT1">Actionable</label> <br/>
 
-            <input id="VT2"type="radio" value="All" name="Variant" onChange={handleChange} />
+            <input id="VT2" type="radio" value="All" name="Variant" onChange={handleChange} />
             <label htmlFor="VT2">All Relevant</label> <br/>
           </div>
 

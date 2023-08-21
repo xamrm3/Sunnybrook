@@ -49,13 +49,13 @@ function Register() {
 
       <div className="centre">
         <form onSubmit={handleSubmit}>
-          <label>Name: </label> <br/>
+          <div className="registerLabel"><label>Name: </label> <br/></div>
           <input type="text" name="Name" className="registerText" value={inputs.Name || ""} onChange={handleChange} onBlur={trimOnBlur}/> <br/> 
           
-          <label>Email: </label> <br/>
+          <div className="registerLabel"><label>Email: </label> <br/></div>
           <input type="text" name="Email" className="registerText" value={inputs.Email || ""} onChange={handleChange} onBlur={trimOnBlur}/> <br/>
           
-          <label>Institution: </label> <br/>
+          <div className="registerLabel"><label>Institution: </label> <br/></div> 
           <input type="text" name="Inst" className="registerText" value={inputs.Inst || ""} onChange={handleChange} onBlur={trimOnBlur}/> <br/>
 
           <br />

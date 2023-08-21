@@ -4,9 +4,10 @@
 }
 
 .centre {
-  text-align: center;
-  padding: 10px;
+  margin: auto;
+  padding: 0px;
   border: 1px solid #2149ad;
+  width: 17%;
 }
 
 .registerButton {
@@ -23,4 +24,8 @@
 
 .registerText {
   width: 200px;
+}
+
+.registerLabel {
+  text-align: left;
 }
