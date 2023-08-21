@@ -4,8 +4,7 @@
 }
 
 .centre {
-  margin: auto;
-  width: 20%;
+  text-align: center;
   /* border: 3px solid #2149ad; */
   padding: 10px;
 }
