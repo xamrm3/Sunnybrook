@@ -41,7 +41,7 @@ function Register() {
 
   return (
      
-    <div className="Form">
+    <div className="Register">
 
       <header>
         <h1>Register for Pharmacogenetics Testing with Pgxtools</h1>
@@ -50,17 +50,17 @@ function Register() {
       <div className="centre">
         <form onSubmit={handleSubmit}>
           <label>Name: </label> <br/>
-          <input type="text" name="Name" value={inputs.Name || ""} onChange={handleChange} onBlur={trimOnBlur}/> <br/>
+          <input type="text" name="Name" className="registerText" value={inputs.Name || ""} onChange={handleChange} onBlur={trimOnBlur}/> <br/> 
           
           <label>Email: </label> <br/>
-          <input type="text" name="Email" value={inputs.Email || ""} onChange={handleChange} onBlur={trimOnBlur}/> <br/>
+          <input type="text" name="Email" className="registerText" value={inputs.Email || ""} onChange={handleChange} onBlur={trimOnBlur}/> <br/>
           
           <label>Institution: </label> <br/>
-          <input type="text" name="Inst" value={inputs.Inst || ""} onChange={handleChange} onBlur={trimOnBlur}/> <br/>
+          <input type="text" name="Inst" className="registerText" value={inputs.Inst || ""} onChange={handleChange} onBlur={trimOnBlur}/> <br/>
 
           <br />
 
-          <input type="submit" value="Register"/>
+          <input type="submit" value="Register" className="registerButton"/>
         </form>
       </div>
     </div>

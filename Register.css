@@ -1,10 +1,26 @@
-.Form {
+.Register {
   text-align: center;
   padding: 25px;
 }
 
 .centre {
   text-align: center;
-  /* border: 3px solid #2149ad; */
   padding: 10px;
+  border: 1px solid #2149ad;
+}
+
+.registerButton {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  width: 150px;
+  padding: 15px;
+}
+
+.registerButton:hover {
+  cursor: pointer;
+}
+
+.registerText {
+  width: 200px;
 }
