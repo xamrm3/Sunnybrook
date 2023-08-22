@@ -8,25 +8,6 @@
   width: 450px;
 }
 
-.formText {
-  width: fill;
-  
-}
-
-#textLabel{
-  float: left;
-  width: 35%;
-  height: 100%;
-  background-color: green;
-}
-
-#textInput{
-  float: left;
-  width: 65%;
-  height: 100%;
-  background-color: blue;
-}
-
 .formButton {
   background-color: #4CAF50;
   border: none;
@@ -37,4 +18,89 @@
 
 .formButton:hover {
   cursor: pointer;
+  background-color: #4caf4fae;
+}
+
+.formRectInput {
+  width: fill;
+}
+
+#SIDLabel{
+  width: 17%;
+  float: left;
+}
+
+#SIDInput{
+  width: 83%;
+  float: left;
+}
+
+#MethodLabel{
+  width: 13.5%;
+  float: left;
+}
+
+#MethodInput{
+  width: 86.5%;
+  float: left;
+}
+
+#PGPLabel{
+  width: 25%;
+  float: left;
+}
+
+#PGPInput{
+  width: 75%;
+  float: left;
+}
+
+#DrugLabel{
+  width: 9%;
+  float: left;
+}
+
+#DrugInput{
+  width: 91%;
+  float: left;
+}
+
+#IPLabel{
+  width: 17%;
+  float: left;
+}
+
+#IPInput{
+  width: 83%;
+  float: left;
+}
+
+#ONLabel{
+  width: 25.5%;
+  float: left;
+}
+
+#ONInput{
+  width: 74.5%;
+  float: left;
+}
+
+#OILabel{
+  width: 32%;
+  float: left;
+}
+
+#OIInput{
+  width: 68%;
+  float: left;
+}
+
+#IALabel{
+  width: 30.5%;
+  float: left;
+}
+
+#IAInput{
+  width: 69.5%;
+  float: left;
 }

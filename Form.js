@@ -47,10 +47,9 @@ function Form() {
 
       <div className="inputs">
         <form onSubmit={handleSubmit}>
-          <div>
-            <div id="textLabel"><label htmlFor="SID">Sample ID: </label></div>
-            <div id="textInput"><input id="SID" type="text" name="ID" className="formText" value={inputs.ID || ""} onChange={handleChange} onBlur={trimOnBlur}/></div>
-          </div>
+          
+          <div id="SIDLabel"><label htmlFor="SID">Sample ID: </label></div>
+          <div id="SIDInput"><input id="SID" type="text" name="ID" className="formRectInput" value={inputs.ID || ""} onChange={handleChange} onBlur={trimOnBlur}/></div>
 
           <div value={inputs.Report}> 
             <label>Report Type: </label> <br/>
@@ -59,7 +58,6 @@ function Form() {
 
             <input id ="RT2" type="radio" value="ClinInterp" name="Report" onChange={handleChange} /> 
             <label htmlFor="RT2">Variants and Clinical Interpretation</label> <br/>
-
           </div>
 
           <div value={inputs.Sample}> 
@@ -71,33 +69,33 @@ function Form() {
             <label htmlFor="ST2">VCF</label> <br/>
           </div>
 
-          <div>
-            <label>Method: </label>
-              <input type="text" name="Method" list="methods" placeholder="Other" onChange={handleChange} onBlur={trimOnBlur}/>
-              <datalist id="methods" name="Method">
-                <option value="Illumina Short Read"></option>
-                <option value="Illumina Long Read"></option>
-                <option value="Pacbio Short Read"></option>
-                <option value="Pacbio Long Read"></option>
-              </datalist>
+          <div id="MethodLabel"><label>Method: </label></div>
+          <div id="MethodInput">
+            <input type="text" name="Method" list="methods" placeholder="Type or select a method" className="formRectInput" onChange={handleChange} onBlur={trimOnBlur}/>
           </div>
+          <datalist id="methods" name="Method">
+            <option value="Illumina Short Read"></option>
+            <option value="Illumina Long Read"></option>
+            <option value="Pacbio Short Read"></option>
+            <option value="Pacbio Long Read"></option>
+          </datalist>
           
-          <div>
-            <label>Pgx gene panel: </label>
-              <select name="Panel" value={inputs.Panel} onChange={handleChange}>
-                <option value=""></option>
-                <option value="COMT">COMT</option>
-                <option value="ABCD">ABCD</option>
-              </select>
+          <div id="PGPLabel"><label>Pgx Gene Panel: </label></div>
+          <div id="PGPInput">
+            <select name="Panel" className="formRectInput" value={inputs.Panel} onChange={handleChange}>
+              <option value=""></option>
+              <option value="COMT">COMT</option>
+              <option value="ABCD">ABCD</option>
+            </select>
           </div>
 
-          <div>
-            <label>Drug: </label>
-              <select name="Drug" value={inputs.Drug} onChange={handleChange}>
-                <option value=""></option>
-                <option value="All drugs">All drugs</option>
-                <option value="Some drugs">Some drugs</option>
-              </select>
+          <div id="DrugLabel"><label>Drug: </label></div>
+          <div id="DrugInput">
+            <select name="Drug" className="formRectInput" value={inputs.Drug} onChange={handleChange}>
+              <option value=""></option>
+              <option value="All drugs">All drugs</option>
+              <option value="Some drugs">Some drugs</option>
+            </select>
           </div>
           
           <div value={inputs.Variant}> 
@@ -115,29 +113,23 @@ function Form() {
             <label htmlFor="Rf1">GRCh38</label>
           </div>
           
-          <div>
-            <label>Input path: </label>
-              <select name="Path" value={inputs.Path} onChange={handleChange}>
-                <option value=""></option>
-                <option value="Path 1">Path 1</option>
-                <option value="Path 2">Path 2</option>
-              </select>
+          <div id="IPLabel"><label>Input Path: </label></div>
+          <div id="IPInput">
+            <select name="Path" className="formRectInput" value={inputs.Path} onChange={handleChange}>
+              <option value=""></option>
+              <option value="Path 1">Path 1</option>
+              <option value="Path 2">Path 2</option>
+            </select>
           </div>
 
-          <div>
-            <label>Operator Name: </label>
-            <input type="text" name="OpName" className="formText" value={inputs.OpName || ""} onChange={handleChange} onBlur={trimOnBlur}/>
-          </div>
+          <div id="ONLabel"><label>Operator Name: </label></div>
+          <div id="ONInput"><input type="text" name="OpName" className="formRectInput" value={inputs.OpName || ""} onChange={handleChange} onBlur={trimOnBlur}/></div>
 
-          <div>
-            <label>Operator Institution: </label>
-            <input type="text" name="OpInst" className="formText" value={inputs.OpInst || ""} onChange={handleChange} onBlur={trimOnBlur}/>
-          </div>
+          <div id="OILabel"><label>Operator Institution: </label></div>
+          <div id="OIInput"><input type="text" name="OpInst" className="formRectInput" value={inputs.OpInst || ""} onChange={handleChange} onBlur={trimOnBlur}/></div>
 
-          <div>
-            <label>Institution Address: </label>
-            <input type="text" name="InstAddr" className="formText" value={inputs.InstAddr || ""} onChange={handleChange} onBlur={trimOnBlur}/>
-          </div>
+          <div id="IALabel"><label>Institution Address: </label></div>
+          <div id="IAInput"><input type="text" name="InstAddr" className="formRectInput" value={inputs.InstAddr || ""} onChange={handleChange} onBlur={trimOnBlur}/></div>
           
           <br/>
           

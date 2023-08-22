@@ -10,6 +10,14 @@
   width: 17%;
 }
 
+.registerText {
+  width: 200px;
+}
+
+.registerLabel {
+  text-align: left;
+}
+
 .registerButton {
   background-color: #4CAF50;
   border: none;
@@ -20,12 +28,5 @@
 
 .registerButton:hover {
   cursor: pointer;
-}
-
-.registerText {
-  width: 200px;
-}
-
-.registerLabel {
-  text-align: left;
+  background-color: #4caf4fae;
 }
