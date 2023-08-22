@@ -58,7 +58,7 @@ function Register() {
           <div className="registerLabel"><label>Institution: </label> <br/></div> 
           <input type="text" name="Inst" className="registerText" value={inputs.Inst || ""} onChange={handleChange} onBlur={trimOnBlur}/> <br/>
 
-          <br />
+          <br/>
 
           <input type="submit" value="Register" className="registerButton"/>
         </form>

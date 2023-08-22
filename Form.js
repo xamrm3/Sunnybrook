@@ -133,7 +133,7 @@ function Form() {
           
           <br/>
           
-          <input type="submit" value="Submit" className="formButton"/>
+          <div><input type="submit" value="Submit" className="formButton"/></div>
         </form>
       </div>
     </div>
