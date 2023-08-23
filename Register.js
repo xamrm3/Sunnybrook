@@ -12,12 +12,18 @@ import VisibilityOff from "@mui/icons-material/VisibilityOff";
 
 function Register() {
 
-  const [inputs, setInputs] = useState({showPassword: false});
+  const [inputs, setInputs] = useState({});
+  const [showInputs, setShowInputs] = useState({showPassword: false, showConfirmPassword: false});
+
   const navigate = useNavigate();
   const emailRe = new RegExp(/^([\w\d!#$%\^&*+\-=?_`{|}~]+\.)*[\w\d]+@[\w]+\.[\w]+$/, "gm");
 
   const handleClickShowPassword = () => {
-    setInputs({ ...inputs, showPassword: !inputs.showPassword });
+    setShowInputs({ ...showInputs, showPassword: !showInputs.showPassword });
+  };
+
+  const handleClickShowConfirmPassword = () => {
+    setShowInputs({ ...showInputs, showConfirmPassword: !showInputs.showConfirmPassword });
   };
 
   const handleMouseDownPassword = (event) => {
@@ -40,7 +46,7 @@ function Register() {
     event.preventDefault();
 
     //check if inputs have all the required information and there is no empty input
-    if (Object.keys(inputs).length !== 10 || Object.values(inputs).some((x) => x === "")) {
+    if (Object.keys(inputs).length !== 9 || Object.values(inputs).some((x) => x === "")) {
       alert("Please fill in all the fields.")
       return;
     }
@@ -51,11 +57,8 @@ function Register() {
       return;
     }
     
-    delete inputs.showPassword;
-    delete inputs.confirmPass;
-
     console.log(inputs);
-    navigate("/");
+    // navigate("/");
   };
 
   return (
@@ -92,11 +95,11 @@ function Register() {
           <div>
           <FormControl sx={{ m: 1, width: '25ch' }} variant="outlined">
             <InputLabel htmlFor="pass">Password</InputLabel>
-            <OutlinedInput id="pass" type="password" name="Pass" className="registerText" label="Password" value={inputs.Pass || ""} onChange={handleChange} 
+            <OutlinedInput id="pass" type={showInputs.showPassword ? "text" : "password"} name="Pass" className="registerText" label="Password" value={inputs.Pass || ""} onChange={handleChange} 
               endAdornment={
                 <InputAdornment position="end">
                     <IconButton onClick={handleClickShowPassword} onMouseDown={handleMouseDownPassword}>
-                      {inputs.showPassword ? <Visibility /> : <VisibilityOff />}
+                      {showInputs.showPassword ? <Visibility /> : <VisibilityOff />}
                     </IconButton>
                 </InputAdornment>
               }/>
@@ -104,11 +107,11 @@ function Register() {
 
           <FormControl sx={{ m: 1, width: '25ch' }} variant="outlined">
             <InputLabel htmlFor="confirmPass">Confirm Password</InputLabel>
-            <OutlinedInput id="confirmPass" type="password" name="confirmPass" className="registerText" label="Confirm Password" value={inputs.confirmPass || ""} onChange={handleChange} 
+            <OutlinedInput id="confirmPass" type={showInputs.showConfirmPassword ? "text" : "password"} name="confirmPass" className="registerText" label="Confirm Password" value={inputs.confirmPass || ""} onChange={handleChange} 
               endAdornment={
                 <InputAdornment position="end">
-                    <IconButton onClick={handleClickShowPassword} onMouseDown={handleMouseDownPassword}>
-                      {inputs.showPassword ? <Visibility /> : <VisibilityOff />}
+                    <IconButton onClick={handleClickShowConfirmPassword} onMouseDown={handleMouseDownPassword}>
+                      {showInputs.showConfirmPassword ? <Visibility /> : <VisibilityOff />}
                     </IconButton>
                 </InputAdornment>
               }/>
