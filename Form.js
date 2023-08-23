@@ -1,5 +1,6 @@
 import './Form.css';
 import { useState } from 'react';
+import Input from "@mui/material/Input";
 
 function Form() {
   
@@ -49,7 +50,7 @@ function Form() {
         <form onSubmit={handleSubmit}>
           
           <div id="SIDLabel"><label htmlFor="SID">Sample ID: </label></div>
-          <div id="SIDInput"><input id="SID" type="text" name="ID" className="formRectInput" value={inputs.ID || ""} onChange={handleChange} onBlur={trimOnBlur}/></div>
+          <div id="SIDInput"><Input id="SID" type="text" name="ID" className="formRectInput" value={inputs.ID || ""} onChange={handleChange} onBlur={trimOnBlur}/></div>
 
           <div value={inputs.Report}> 
             <label>Report Type: </label> <br/>
@@ -123,13 +124,13 @@ function Form() {
           </div>
 
           <div id="ONLabel"><label>Operator Name: </label></div>
-          <div id="ONInput"><input type="text" name="OpName" className="formRectInput" value={inputs.OpName || ""} onChange={handleChange} onBlur={trimOnBlur}/></div>
+          <div id="ONInput"><Input type="text" name="OpName" className="formRectInput" value={inputs.OpName || ""} onChange={handleChange} onBlur={trimOnBlur}/></div>
 
           <div id="OILabel"><label>Operator Institution: </label></div>
-          <div id="OIInput"><input type="text" name="OpInst" className="formRectInput" value={inputs.OpInst || ""} onChange={handleChange} onBlur={trimOnBlur}/></div>
+          <div id="OIInput"><Input type="text" name="OpInst" className="formRectInput" value={inputs.OpInst || ""} onChange={handleChange} onBlur={trimOnBlur}/></div>
 
           <div id="IALabel"><label>Institution Address: </label></div>
-          <div id="IAInput"><input type="text" name="InstAddr" className="formRectInput" value={inputs.InstAddr || ""} onChange={handleChange} onBlur={trimOnBlur}/></div>
+          <div id="IAInput"><Input type="text" name="InstAddr" className="formRectInput" value={inputs.InstAddr || ""} onChange={handleChange} onBlur={trimOnBlur}/></div>
           
           <br/>
           

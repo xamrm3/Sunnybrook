@@ -1,6 +1,10 @@
 import './Register.css'
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import OutlinedInput from "@mui/material/OutlinedInput";
+import InputLabel from "@mui/material/InputLabel";
+import FormControl from "@mui/material/FormControl";
+import Button from "@mui/material/Button";
 
 function Register() {
 
@@ -36,7 +40,7 @@ function Register() {
     }
     
     console.log(inputs);
-    navigate("/Form");
+    navigate("/");
   };
 
   return (
@@ -49,19 +53,29 @@ function Register() {
 
       <div className="centre">
         <form onSubmit={handleSubmit}>
-          <div className="registerLabel"><label>Name: </label> <br/></div>
-          <input type="text" name="Name" className="registerText" value={inputs.Name || ""} onChange={handleChange} onBlur={trimOnBlur}/> <br/> 
+          {/* <div className="registerLabel"><label>Name: </label> <br/></div>
+          <Input type="text" name="Name" className="registerText" value={inputs.Name || ""} onChange={handleChange} onBlur={trimOnBlur}/> <br/> 
           
+          
+
           <div className="registerLabel"><label>Email: </label> <br/></div>
-          <input type="text" name="Email" className="registerText" value={inputs.Email || ""} onChange={handleChange} onBlur={trimOnBlur}/> <br/>
+          <Input type="text" name="Email" className="registerText" value={inputs.Email || ""} onChange={handleChange} onBlur={trimOnBlur}/> <br/>
           
           <div className="registerLabel"><label>Institution: </label> <br/></div> 
-          <input type="text" name="Inst" className="registerText" value={inputs.Inst || ""} onChange={handleChange} onBlur={trimOnBlur}/> <br/>
+          <Input type="text" name="Inst" className="registerText" value={inputs.Inst || ""} onChange={handleChange} onBlur={trimOnBlur}/> <br/> */}
 
-          <br/>
+          <FormControl sx={{ m: 1, width: '25ch' }} variant="outlined">
+            <InputLabel htmlFor="name">Name</InputLabel>
+            <OutlinedInput id="name" type="text" name="Name" className="registerText" label="Name" value={inputs.Name || ""} onChange={handleChange} onBlur={trimOnBlur}/>
+          </FormControl>
 
-          <input type="submit" value="Register" className="registerButton"/>
+          <br/><br/>
+
+          <Button type="submit" value="Register" variant="contained" className="registerButton">Register</Button>
         </form>
+
+        <h4>Have an account?</h4>
+        <Button variant="contained" className="registerButton" onClick={() => navigate("/")}>Sign In</Button>
       </div>
     </div>
   )

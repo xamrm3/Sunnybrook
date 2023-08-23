@@ -1,0 +1,28 @@
+.Signin {
+  text-align: center;
+  padding: 25px;
+}
+
+.centre {
+  margin: auto;
+  padding: 0px;
+  /* border: 1px solid #2149ad; */
+  width: 210px;
+}
+
+.signinText {
+  width: 200px;
+}
+
+.signinButton {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  width: 150px;
+  padding: 15px;
+}
+
+.signinButton:hover {
+  cursor: pointer;
+  background-color: #4caf4fae;
+}
