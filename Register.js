@@ -46,7 +46,7 @@ function Register() {
     event.preventDefault();
 
     //check if inputs have all the required information and there is no empty input
-    if (Object.keys(inputs).length !== 9 || Object.values(inputs).some((x) => x === "")) {
+    if (Object.keys(inputs).length !== 7 || Object.values(inputs).some((x) => x === "")) {
       alert("Please fill in all the fields.")
       return;
     }
@@ -57,8 +57,9 @@ function Register() {
       return;
     }
     
+    delete inputs.confirmPass;
     console.log(inputs);
-    // navigate("/");
+    navigate("/");
   };
 
   return (
