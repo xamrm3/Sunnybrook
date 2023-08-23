@@ -3,19 +3,21 @@
   padding: 25px;
 }
 
-.centre {
+.registerCentre {
   margin: auto;
   padding: 0px;
-  /* border: 1px solid #2149ad; */
-  width: 210px;
+  border: 1px solid #2149ad;
+  width: 450px;
 }
 
 .registerText {
   width: 200px;
+  /* border: 1px solid #2149ad; */
 }
 
-.registerLabel {
-  text-align: left;
+.registerMultiLineText {
+  width: 400px;
+  /* border: 1px solid #2149ad; */
 }
 
 .registerButton {
@@ -30,3 +32,5 @@
   cursor: pointer;
   background-color: #4caf4fae;
 }
+
+

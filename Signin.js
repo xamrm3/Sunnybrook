@@ -1,16 +1,14 @@
 import './Signin.css'
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import Visibility from "@mui/icons-material/Visibility";
-import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import OutlinedInput from "@mui/material/OutlinedInput";
 import InputLabel from "@mui/material/InputLabel";
 import FormControl from "@mui/material/FormControl";
 import Button from "@mui/material/Button";
 import InputAdornment from "@mui/material/InputAdornment";
 import IconButton from "@mui/material/IconButton";
-
-
+import Visibility from "@mui/icons-material/Visibility";
+import VisibilityOff from "@mui/icons-material/VisibilityOff";
 
 function Signin() {
 
@@ -65,7 +63,7 @@ function Signin() {
         <h1>Sign into Pharmacogenetics Testing with Pgxtools</h1>
       </header>
 
-      <div className="centre">
+      <div className="signinCentre">
         <form onSubmit={handleSubmit}>   
           
           <FormControl sx={{ m: 1, width: '25ch' }} variant="outlined">
