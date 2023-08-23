@@ -40,7 +40,7 @@ function Register() {
     event.preventDefault();
 
     //check if inputs have all the required information and there is no empty input
-    if (Object.keys(inputs).length !== 3 || Object.values(inputs).some((x) => x === "")) {
+    if (Object.keys(inputs).length !== 10 || Object.values(inputs).some((x) => x === "")) {
       alert("Please fill in all the fields.")
       return;
     }
@@ -51,6 +51,9 @@ function Register() {
       return;
     }
     
+    delete inputs.showPassword;
+    delete inputs.confirmPass;
+
     console.log(inputs);
     navigate("/");
   };
@@ -66,6 +69,8 @@ function Register() {
       <div className="registerCentre">
         <form onSubmit={handleSubmit}>
 
+          <h3 className="registerLeftText">User Information</h3>
+          <div>
           <FormControl sx={{ m: 1, width: '25ch' }} variant="outlined">
             <InputLabel htmlFor="fName">First Name</InputLabel>
             <OutlinedInput id="fName" type="text" name="FirstName" className="registerText" label="First Name" value={inputs.FirstName || ""} onChange={handleChange} onBlur={trimOnBlur}/>
@@ -75,12 +80,16 @@ function Register() {
             <InputLabel htmlFor="lName">Last Name</InputLabel>
             <OutlinedInput id="lName" type="text" name="LastName" className="registerText" label="Last Name" value={inputs.LastName || ""} onChange={handleChange} onBlur={trimOnBlur}/>
           </FormControl>
+          </div>
 
+          <div className="registerLeftTextSingle">
           <FormControl sx={{ m: 1, width: '25ch' }} variant="outlined">
             <InputLabel htmlFor="email">Email</InputLabel>
-            <OutlinedInput id="email" type="text" name="Email" className="registerText" label="Email" value={inputs.Email || ""} onChange={handleChange} onBlur={trimOnBlur}/>
+            <OutlinedInput id="email" type="text" name="Email" className="registerTextSingle" label="Email" value={inputs.Email || ""} onChange={handleChange} onBlur={trimOnBlur}/>
           </FormControl>
+          </div>
 
+          <div>
           <FormControl sx={{ m: 1, width: '25ch' }} variant="outlined">
             <InputLabel htmlFor="pass">Password</InputLabel>
             <OutlinedInput id="pass" type="password" name="Pass" className="registerText" label="Password" value={inputs.Pass || ""} onChange={handleChange} 
@@ -104,20 +113,35 @@ function Register() {
                 </InputAdornment>
               }/>
           </FormControl>
+          </div>
 
-          
+          <h3 className="registerLeftText">Institution Details</h3>
 
+          <div>
           <FormControl sx={{ m: 1, width: '25ch' }} variant="outlined">
-            <InputLabel htmlFor="address">Institution Address</InputLabel>
-            <OutlinedInput id="address" type="text" name="InstAddr" className="registerText" label="Institution Address" value={inputs.InstAddr || ""} onChange={handleChange} onBlur={trimOnBlur}/>
+            <InputLabel htmlFor="address">Address</InputLabel>
+            <OutlinedInput id="address" type="text" name="Addr" className="registerText" label="Address" value={inputs.Addr || ""} onChange={handleChange} onBlur={trimOnBlur}/>
           </FormControl>
 
           <FormControl sx={{ m: 1, width: '25ch' }} variant="outlined">
-            <InputLabel htmlFor="addressInfo">Additional Address Information</InputLabel>
-            <OutlinedInput id="addressInfo" type="text" name="addrInfo" className="registerText" label="Additional Address Information" multiline maxRows={4} value={inputs.addrInfo || ""} onChange={handleChange} onBlur={trimOnBlur}/>
+            <InputLabel htmlFor="country">Country</InputLabel>
+            <OutlinedInput id="country" type="text" name="Country" className="registerText" label="Country" value={inputs.Country || ""} onChange={handleChange} onBlur={trimOnBlur}/>
+          </FormControl>
+          </div>
+
+          <div>
+          <FormControl sx={{ m: 1, width: '25ch' }} variant="outlined">
+            <InputLabel htmlFor="city">City</InputLabel>
+            <OutlinedInput id="city" type="text" name="City" className="registerText" label="City" value={inputs.City || ""} onChange={handleChange} onBlur={trimOnBlur}/>
           </FormControl>
 
-          <br/><br/>
+          <FormControl sx={{ m: 1, width: '25ch' }} variant="outlined">
+            <InputLabel htmlFor="postal">Postal Code</InputLabel>
+            <OutlinedInput id="postal" type="text" name="pCode" className="registerText" label="Postal Code" value={inputs.pCode || ""} onChange={handleChange} onBlur={trimOnBlur}/>
+          </FormControl>
+          </div>
+
+          <br/>
 
           <Button type="submit" value="Register" variant="contained" className="registerButton">Register</Button>
         </form>

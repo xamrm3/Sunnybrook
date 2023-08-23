@@ -1,23 +1,24 @@
 .Register {
   text-align: center;
-  padding: 25px;
 }
 
 .registerCentre {
   margin: auto;
+  width: 465px;
   padding: 0px;
-  border: 1px solid #2149ad;
-  width: 450px;
+  /* border: 1px solid #2149ad; */
 }
 
 .registerText {
-  width: 200px;
-  /* border: 1px solid #2149ad; */
+  width: fill;
 }
 
-.registerMultiLineText {
-  width: 400px;
-  /* border: 1px solid #2149ad; */
+.registerTextSingle {
+  width: 450px;
+}
+
+.registerLeftTextSingle {
+  text-align: left;
 }
 
 .registerButton {
@@ -33,4 +34,7 @@
   background-color: #4caf4fae;
 }
 
-
+.registerLeftText{
+  text-align: left;
+  padding-left: 10px;
+}
