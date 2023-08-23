@@ -1,18 +1,13 @@
 import './Register.css'
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import OutlinedInput from "@mui/material/OutlinedInput";
-import InputLabel from "@mui/material/InputLabel";
-import FormControl from "@mui/material/FormControl";
-import Button from "@mui/material/Button";
-import InputAdornment from "@mui/material/InputAdornment";
-import IconButton from "@mui/material/IconButton";
-import Visibility from "@mui/icons-material/Visibility";
-import VisibilityOff from "@mui/icons-material/VisibilityOff";
+import { OutlinedInput, InputLabel, FormControl, Button, IconButton, InputAdornment, Alert } from "@mui/material";
+import { Visibility, VisibilityOff } from "@mui/icons-material";
+import PasswordChecklist from "react-password-checklist"
 
 function Register() {
 
-  const [inputs, setInputs] = useState({});
+  const [inputs, setInputs] = useState({Pass: "", confirmPass: ""});
   const [showInputs, setShowInputs] = useState({showPassword: false, showConfirmPassword: false});
 
   const navigate = useNavigate();
@@ -54,6 +49,16 @@ function Register() {
     //check if email is valid
     if (!emailRe.test(inputs.Email)) {
       alert("Please enter a valid email.")
+      return;
+    }
+
+    if (inputs.Pass !== inputs.confirmPass) {
+      alert("Passwords do not match.")
+      return;
+    }
+
+    if (!/[A-Z]/.test(inputs.Pass) || inputs.Pass.length !== 8){
+      alert("Please check that all password requirements are met")
       return;
     }
     
@@ -117,6 +122,14 @@ function Register() {
                   </InputAdornment>
                 }/>
             </FormControl>
+            <div className="registerLeftText">
+              <PasswordChecklist
+                  rules={["minLength", "capital", "match"]}
+                  minLength={8}
+                  value={inputs.Pass}
+                  valueAgain={inputs.confirmPass}
+              />
+            </div>
           </div>
 
           <h3 className="registerLeftText">Institution Details</h3>
