@@ -3,7 +3,7 @@
   padding: 25px;
 }
 
-.inputs {
+.formInputs {
   /* border: 1px solid #2149ad; */
   width: 450px;
 }
@@ -25,82 +25,6 @@
   width: 300px;
 }
 
-#SIDLabel{
-  width: 17%;
-  float: left;
-}
-
-#SIDInput{
-  width: 83%;
-  float: left;
-}
-
-#MethodLabel{
-  width: 13.5%;
-  float: left;
-}
-
-#MethodInput{
-  width: 86.5%;
-  float: left;
-}
-
-#PGPLabel{
-  width: 25%;
-  float: left;
-}
-
-#PGPInput{
-  width: 75%;
-  float: left;
-}
-
-#DrugLabel{
-  width: 9%;
-  float: left;
-}
-
-#DrugInput{
-  width: 91%;
-  float: left;
-}
-
-#IPLabel{
-  width: 17%;
-  float: left;
-}
-
-#IPInput{
-  width: 83%;
-  float: left;
-}
-
-#ONLabel{
-  width: 25.5%;
-  float: left;
-}
-
-#ONInput{
-  width: 74.5%;
-  float: left;
-}
-
-#OILabel{
-  width: 32%;
-  float: left;
-}
-
-#OIInput{
-  width: 68%;
-  float: left;
-}
-
-#IALabel{
-  width: 30.5%;
-  float: left;
-}
-
-#IAInput{
-  width: 69.5%;
-  float: left;
+.formInput {
+  width: fill;
 }
