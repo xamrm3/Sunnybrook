@@ -1,7 +1,7 @@
 import './Register.css'
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { OutlinedInput, InputLabel, FormControl, Button, IconButton, InputAdornment, Alert } from "@mui/material";
+import { OutlinedInput, InputLabel, FormControl, Button, IconButton, InputAdornment } from "@mui/material";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
 import PasswordChecklist from "react-password-checklist"
 
