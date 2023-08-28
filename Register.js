@@ -1,18 +1,17 @@
 import './Register.css'
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { OutlinedInput, InputLabel, FormControl, Button, IconButton, InputAdornment } from "@mui/material";
+import { OutlinedInput, InputLabel, FormControl, IconButton, InputAdornment } from "@mui/material";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
 import PasswordChecklist from "react-password-checklist";
 
-
 function Register() {
 
-  const [inputs, setInputs] = useState({Pass: "", confirmPass: ""});
+  const [inputs, setInputs] = useState({FirstName: "", LastName: "", Email: "", Pass: "", Addr: "", Details: ""});
+  const [confirmPass, setConfirmPass] = useState("");
   const [showInputs, setShowInputs] = useState({showPassword: false, showConfirmPassword: false});
 
   const navigate = useNavigate();
-  const emailRe = new RegExp(/^([\w\d!#$%\^&*+\-=?_`{|}~]+\.)*[\w\d]+@[\w]+\.[\w]+$/, "gm");
   
   const handleClickShowPassword = () => {
     setShowInputs({ ...showInputs, showPassword: !showInputs.showPassword });
@@ -32,6 +31,11 @@ function Register() {
     setInputs(values => ({...values, [name]: value}))
   }
 
+  const handleConfirmPassChange = (event) => {
+    const value = event.target.value;
+    setConfirmPass(value);
+  }
+
   const trimOnBlur = (event) => {
     const name = event.target.name;
     const value = event.target.value;
@@ -42,24 +46,19 @@ function Register() {
     event.preventDefault();
 
     //check if inputs have all the required information and there is no empty input
-    if (Object.keys(inputs).length !== 7 || Object.values(inputs).some((x) => x === "")) {
+    if (Object.values(inputs).some((x) => x === "")) {
       alert("Please fill in all the fields.");
       return;
     }
 
+    // const emailRe = new RegExp(/^([\w\d!#$%\^&*+\-=?_`{|}~]+\.)*[\w\d]+@[\w\d]+\.[\w]+$/, "gm");
     // //check if email is valid
     // if (!emailRe.test(inputs.Email)) {
     //   alert("Please enter a valid email.")
     //   return;
     // }
 
-     //check if email is valid
-    //  if (!validator.isEmail(inputs.Email)) {
-    //   alert("Please enter a valid email.")
-    //   return;
-    // }
-
-    if (inputs.Pass !== inputs.confirmPass) {
+    if (inputs.Pass !== confirmPass) {
       alert("Passwords do not match.");
       return;
     }
@@ -69,13 +68,12 @@ function Register() {
       return;
     }
     
-    delete inputs.confirmPass;
     console.log(inputs);
-    // navigate("/");
+    navigate("/");
   };
 
   return (
-     
+
     <div className="Register">
 
       <header>
@@ -89,26 +87,26 @@ function Register() {
           <div>
             <FormControl sx={{ m: 1, width: '25ch' }} variant="outlined">
               <InputLabel htmlFor="fName">First Name</InputLabel>
-              <OutlinedInput id="fName" type="text" name="FirstName" className="registerText" label="First Name" required value={inputs.FirstName || ""} onChange={handleChange} onBlur={trimOnBlur}/>
+              <OutlinedInput id="fName" type="text" name="FirstName" label="First Name" required value={inputs.FirstName || ""} onChange={handleChange} onBlur={trimOnBlur}/>
             </FormControl>
             
             <FormControl sx={{ m: 1, width: '25ch' }} variant="outlined">
               <InputLabel htmlFor="lName">Last Name</InputLabel>
-              <OutlinedInput id="lName" type="text" name="LastName" className="registerText" label="Last Name" required value={inputs.LastName || ""} onChange={handleChange} onBlur={trimOnBlur}/>
+              <OutlinedInput id="lName" type="text" name="LastName" label="Last Name" required value={inputs.LastName || ""} onChange={handleChange} onBlur={trimOnBlur}/>
             </FormControl>
           </div>
 
           <div className="registerLeftTextSingle">
-            <FormControl sx={{ m: 1, width: '25ch' }} variant="outlined">
+            <FormControl sx={{ m: 1, width: '25ch' }} variant="outlined" type="email">
               <InputLabel htmlFor="email">Email</InputLabel>
-              <OutlinedInput id="email" type="text" name="Email" className="registerTextSingle" label="Email" required value={inputs.Email || ""} onChange={handleChange} onBlur={trimOnBlur}/>
+              <OutlinedInput id="email" type="email" name="Email" className="registerTextSingle" label="Email" required value={inputs.Email || ""} onChange={handleChange} onBlur={trimOnBlur}/>
             </FormControl>
           </div>
 
           <div>
             <FormControl sx={{ m: 1, width: '25ch' }} variant="outlined">
               <InputLabel htmlFor="pass">Password</InputLabel>
-              <OutlinedInput id="pass" type={showInputs.showPassword ? "text" : "password"} name="Pass" className="registerText" label="Password" required value={inputs.Pass || ""} onChange={handleChange} 
+              <OutlinedInput id="pass" type={showInputs.showPassword ? "text" : "password"} name="Pass" label="Password" required value={inputs.Pass || ""} onChange={handleChange} 
                 endAdornment={
                   <InputAdornment position="end">
                       <IconButton onClick={handleClickShowPassword} onMouseDown={handleMouseDownPassword}>
@@ -120,7 +118,7 @@ function Register() {
 
             <FormControl sx={{ m: 1, width: '25ch' }} variant="outlined">
               <InputLabel htmlFor="confirmPass">Confirm Password</InputLabel>
-              <OutlinedInput id="confirmPass" type={showInputs.showConfirmPassword ? "text" : "password"} name="confirmPass" className="registerText" label="Confirm Password" required value={inputs.confirmPass || ""} onChange={handleChange} 
+              <OutlinedInput id="confirmPass" type={showInputs.showConfirmPassword ? "text" : "password"} name="confirmPass" label="Confirm Password" required value={confirmPass} onChange={handleConfirmPassChange} 
                 endAdornment={
                   <InputAdornment position="end">
                       <IconButton onClick={handleClickShowConfirmPassword} onMouseDown={handleMouseDownPassword}>
@@ -134,7 +132,7 @@ function Register() {
                   rules={["minLength", "capital", "match"]}
                   minLength={8}
                   value={inputs.Pass}
-                  valueAgain={inputs.confirmPass}
+                  valueAgain={confirmPass}
               />
             </div>
           </div>
@@ -155,37 +153,13 @@ function Register() {
             </FormControl>
           </div>
 
-
-          {/* <div>
-            <FormControl sx={{ m: 1, width: '25ch' }} variant="outlined">
-              <InputLabel htmlFor="address">Address</InputLabel>
-              <OutlinedInput id="address" type="text" name="Addr" className="registerText" label="Address" required value={inputs.Addr || ""} onChange={handleChange} onBlur={trimOnBlur}/>
-            </FormControl>
-            <FormControl sx={{ m: 1, width: '25ch' }} variant="outlined">
-              <InputLabel htmlFor="city">City</InputLabel>
-              <OutlinedInput id="city" type="text" name="City" className="registerText" label="City" required value={inputs.City || ""} onChange={handleChange} onBlur={trimOnBlur}/>
-            </FormControl>
-          </div>
-
-          <div>
-            <FormControl sx={{ m: 1, width: '25ch' }} variant="outlined">
-              <InputLabel htmlFor="country">Country</InputLabel>
-              <OutlinedInput id="country" type="text" name="Country" className="registerText" label="Country" required value={inputs.Country || ""} onChange={handleChange} onBlur={trimOnBlur}/>
-            </FormControl>
-
-            <FormControl sx={{ m: 1, width: '25ch' }} variant="outlined">
-              <InputLabel htmlFor="postal">Postal Code</InputLabel>
-              <OutlinedInput id="postal" type="text" name="pCode" className="registerText" label="Postal Code" required value={inputs.pCode || ""} onChange={handleChange} onBlur={trimOnBlur}/>
-            </FormControl>
-          </div> */}
-
           <br/>
 
-          <Button type="submit" value="Register" variant="contained" className="registerButton">Register</Button>
+          <input type="submit" value="Register" className="registerButton"></input>
         </form>
 
         <h4>Have an account?</h4>
-        <Button variant="contained" className="registerButton" onClick={() => navigate("/")}>Sign In</Button>
+        <button value="SignIn" className="registerButton" onClick={() => navigate("/")}>Sign In</button>
       </div>
     </div>
   )

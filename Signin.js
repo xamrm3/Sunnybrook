@@ -12,12 +12,12 @@ import VisibilityOff from "@mui/icons-material/VisibilityOff";
 
 function Signin() {
 
-  const [inputs, setInputs] = useState({showPassword: false});
+  const [inputs, setInputs] = useState({Email: "", Pass:""});
+  const [showPass, setShowPass] = useState(false);
   const navigate = useNavigate();
-  const emailRe = new RegExp(/^([\w\d!#$%\^&*+\-=?_`{|}~]+\.)*[\w\d]+@[\w]+\.[\w]+$/, "gm");
 
   const handleClickShowPassword = () => {
-    setInputs({ ...inputs, showPassword: !inputs.showPassword });
+    setShowPass(!showPass);
   };
 
   const handleMouseDownPassword = (event) => {
@@ -40,16 +40,17 @@ function Signin() {
     event.preventDefault();
 
     //check if inputs have all the required information and there is no empty input
-    if (Object.keys(inputs).length !== 3 || Object.values(inputs).some((x) => x === "")) {
+    if (Object.values(inputs).some((x) => x === "")) {
       alert("Please fill in all the fields.")
       return;
     }
-
+    
+    //const emailRe = new RegExp(/^([\w\d!#$%\^&*+\-=?_`{|}~]+\.)*[\w\d]+@[\w]+\.[\w]+$/, "gm");
     //check if email is valid
-    if (!emailRe.test(inputs.Email)) {
-      alert("Please enter a valid email.")
-      return;
-    }
+    // if (!emailRe.test(inputs.Email)) {
+    //   alert("Please enter a valid email.")
+    //   return;
+    // }
     
     console.log(inputs);
     navigate("/Form");
@@ -68,16 +69,16 @@ function Signin() {
           
           <FormControl sx={{ m: 1, width: '25ch' }} variant="outlined">
             <InputLabel htmlFor="email">Email</InputLabel>
-            <OutlinedInput id="email" type="text" name="Email" className="signinText" label="Email" value={inputs.Email || ""} onChange={handleChange} onBlur={trimOnBlur}/>
+            <OutlinedInput id="email" type="email" name="Email" className="signinText" label="Email" required value={inputs.Email} onChange={handleChange} onBlur={trimOnBlur}/>
           </FormControl>
 
           <FormControl sx={{ m: 1, width: '25ch' }} variant="outlined">
             <InputLabel htmlFor="password">Password</InputLabel>
-            <OutlinedInput id="password" type={inputs.showPassword ? "text" : "password"} name="Pass" className="signinText" label="Password" onChange={handleChange} value={inputs.Pass || ""} 
+            <OutlinedInput id="password" type={showPass ? "text" : "password"} name="Pass" className="signinText" label="Password" value={inputs.Pass} onChange={handleChange}  
               endAdornment={
                 <InputAdornment position="end">
                     <IconButton onClick={handleClickShowPassword} onMouseDown={handleMouseDownPassword}>
-                      {inputs.showPassword ? <Visibility /> : <VisibilityOff />}
+                      {showPass ? <Visibility /> : <VisibilityOff />}
                     </IconButton>
                 </InputAdornment>
               }/>
@@ -85,11 +86,11 @@ function Signin() {
 
           <br/><br/>
 
-          <Button type="submit" value="Sign In" variant="contained" className="signinButton">Sign In</Button>
+          <input type="submit" value="Sign In" className="signinButton"></input>
         </form>
 
         <h4>Don't have an account?</h4>
-        <Button variant="contained" className="signinButton" onClick={() => navigate("/Register")}>Register</Button>
+        <button value="Register" className="signinButton" onClick={() => navigate("/Register")}>Register</button>
       </div>
     </div>
   )

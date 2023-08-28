@@ -20,11 +20,3 @@
   cursor: pointer;
   background-color: #4caf4fae;
 }
-
-.formRectInput {
-  width: 300px;
-}
-
-.formInput {
-  width: fill;
-}

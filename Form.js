@@ -6,7 +6,7 @@ import { OutlinedInput, InputLabel, FormControl, FormLabel, RadioGroup, FormCont
 function Form() {
   
   const [inputs, setInputs] = useState({ID: "", Report: "", Sample: "", Method: "", otherMethod: "", Panel: "", 
-    Drug: "", Variant: "", Reference: "", Path: "", OpName: "", OpInst: "", InstAddr: "" })
+    Drug: "", Variant: "", Reference: "", Path: "", OpName: "", OpInst: "", InstAddr: ""})
 
   const handleChange = (event) => {
     const name = event.target.name;
@@ -87,17 +87,6 @@ function Form() {
               </RadioGroup>
             </FormControl>
           </div>
-
-          {/* <div id="MethodLabel"><label>Method: </label></div>
-          <div id="MethodInput">
-            <input type="text" name="Method" list="methods" placeholder="Type or select a method" className="formRectInput" required onChange={handleChange} onBlur={trimOnBlur}/>
-          </div>
-          <datalist id="methods" name="Method">
-            <option value="Illumina Short Read"></option>
-            <option value="Illumina Long Read"></option>
-            <option value="Pacbio Short Read"></option>
-            <option value="Pacbio Long Read"></option>
-          </datalist> */}
          
           <div>
             <FormControl sx={{ mt: 2, width: 65/100 }}>

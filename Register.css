@@ -10,12 +10,13 @@
   /* border: 1px solid #2149ad; */
 }
 
-.registerText {
-  width: fill;
-}
-
 .registerTextSingle {
   width: 450px;
+}
+
+.registerLeftText{
+  text-align: left;
+  padding-left: 10px;
 }
 
 .registerLeftTextSingle {
@@ -33,9 +34,4 @@
 .registerButton:hover {
   cursor: pointer;
   background-color: #4caf4fae;
-}
-
-.registerLeftText{
-  text-align: left;
-  padding-left: 10px;
 }
