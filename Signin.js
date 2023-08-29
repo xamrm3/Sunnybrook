@@ -1,23 +1,17 @@
 import './Signin.css'
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import OutlinedInput from "@mui/material/OutlinedInput";
-import InputLabel from "@mui/material/InputLabel";
-import FormControl from "@mui/material/FormControl";
-import Button from "@mui/material/Button";
-import InputAdornment from "@mui/material/InputAdornment";
-import IconButton from "@mui/material/IconButton";
-import Visibility from "@mui/icons-material/Visibility";
-import VisibilityOff from "@mui/icons-material/VisibilityOff";
+import { OutlinedInput, InputLabel, FormControl, IconButton, InputAdornment } from "@mui/material";
+import { Visibility, VisibilityOff } from "@mui/icons-material";
 
 function Signin() {
 
-  const [inputs, setInputs] = useState({Email: "", Pass:""});
-  const [showPass, setShowPass] = useState(false);
+  const [inputs, setInputs] = useState({Email: "", Password:""});
+  const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
 
   const handleClickShowPassword = () => {
-    setShowPass(!showPass);
+    setShowPassword(!showPassword);
   };
 
   const handleMouseDownPassword = (event) => {
@@ -74,11 +68,11 @@ function Signin() {
 
           <FormControl sx={{ m: 1, width: '25ch' }} variant="outlined">
             <InputLabel htmlFor="password">Password</InputLabel>
-            <OutlinedInput id="password" type={showPass ? "text" : "password"} name="Pass" className="signinText" label="Password" value={inputs.Pass} onChange={handleChange}  
+            <OutlinedInput id="password" type={showPassword ? "text" : "password"} name="Password" className="signinText" label="Password" value={inputs.Password} onChange={handleChange}  
               endAdornment={
                 <InputAdornment position="end">
                     <IconButton onClick={handleClickShowPassword} onMouseDown={handleMouseDownPassword}>
-                      {showPass ? <Visibility /> : <VisibilityOff />}
+                      {showPassword ? <Visibility /> : <VisibilityOff />}
                     </IconButton>
                 </InputAdornment>
               }/>

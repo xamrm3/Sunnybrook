@@ -2,7 +2,6 @@ import './Form.css';
 import { useState } from 'react';
 import { OutlinedInput, InputLabel, FormControl, FormLabel, RadioGroup, FormControlLabel, Radio, Select, MenuItem, FormHelperText } from "@mui/material";
 
-
 function Form() {
   
   const [inputs, setInputs] = useState({ID: "", Report: "", Sample: "", Method: "", otherMethod: "", Panel: "", 
@@ -33,17 +32,24 @@ function Form() {
     }
 
     // temporarily change Other Method so other inputs can be checked for empty
-    const temp = inputs.otherMethod;
+    const otherMethodCopy = inputs.otherMethod;
     inputs.otherMethod = " ";
 
+    // check if all inputs are filled in
     if (Object.values(inputs).some((x) => x === "")){
-      inputs.otherMethod = temp;
+      inputs.otherMethod = otherMethodCopy;
       alert("Please fill in all the fields.")
       return;
     }
 
-    inputs.otherMethod = temp;
-    console.log(inputs)
+    // update Method if Other Method is selected
+    if (inputs.Method === "Other"){
+      inputs.Method = otherMethodCopy;
+    }
+    delete inputs.otherMethod;
+
+    console.log(inputs);
+    //window.location.reload();
   }
 
   return (

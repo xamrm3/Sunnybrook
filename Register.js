@@ -1,14 +1,14 @@
 import './Register.css'
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { OutlinedInput, InputLabel, FormControl, IconButton, InputAdornment } from "@mui/material";
+import { OutlinedInput, InputLabel, FormControl, IconButton, InputAdornment, FormHelperText } from "@mui/material";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
 import PasswordChecklist from "react-password-checklist";
 
 function Register() {
 
-  const [inputs, setInputs] = useState({FirstName: "", LastName: "", Email: "", Pass: "", Addr: "", Details: ""});
-  const [confirmPass, setConfirmPass] = useState("");
+  const [inputs, setInputs] = useState({FirstName: "", LastName: "", Email: "", Password: "", Addr: "", Details: ""});
+  const [confirmPassword, setConfirmPass] = useState("");
   const [showInputs, setShowInputs] = useState({showPassword: false, showConfirmPassword: false});
 
   const navigate = useNavigate();
@@ -58,16 +58,16 @@ function Register() {
     //   return;
     // }
 
-    if (inputs.Pass !== confirmPass) {
+    if (inputs.Password !== confirmPassword) {
       alert("Passwords do not match.");
       return;
     }
 
-    if (!/[A-Z]/.test(inputs.Pass) || inputs.Pass.length < 8){
+    if (!/[A-Z]/.test(inputs.Password) || inputs.Password.length < 8){
       alert("Please check that all password requirements are met");
       return;
     }
-    
+
     console.log(inputs);
     navigate("/");
   };
@@ -105,8 +105,8 @@ function Register() {
 
           <div>
             <FormControl sx={{ m: 1, width: '25ch' }} variant="outlined">
-              <InputLabel htmlFor="pass">Password</InputLabel>
-              <OutlinedInput id="pass" type={showInputs.showPassword ? "text" : "password"} name="Pass" label="Password" required value={inputs.Pass || ""} onChange={handleChange} 
+              <InputLabel htmlFor="password">Password</InputLabel>
+              <OutlinedInput id="password" type={showInputs.showPassword ? "text" : "password"} name="Password" label="Password" required value={inputs.Password || ""} onChange={handleChange} 
                 endAdornment={
                   <InputAdornment position="end">
                       <IconButton onClick={handleClickShowPassword} onMouseDown={handleMouseDownPassword}>
@@ -117,8 +117,8 @@ function Register() {
             </FormControl>
 
             <FormControl sx={{ m: 1, width: '25ch' }} variant="outlined">
-              <InputLabel htmlFor="confirmPass">Confirm Password</InputLabel>
-              <OutlinedInput id="confirmPass" type={showInputs.showConfirmPassword ? "text" : "password"} name="confirmPass" label="Confirm Password" required value={confirmPass} onChange={handleConfirmPassChange} 
+              <InputLabel htmlFor="confirmPassword">Confirm Password</InputLabel>
+              <OutlinedInput id="confirmPassword" type={showInputs.showConfirmPassword ? "text" : "password"} name="confirmPassword" label="Confirm Password" required value={confirmPassword} onChange={handleConfirmPassChange} 
                 endAdornment={
                   <InputAdornment position="end">
                       <IconButton onClick={handleClickShowConfirmPassword} onMouseDown={handleMouseDownPassword}>
@@ -131,8 +131,8 @@ function Register() {
               <PasswordChecklist
                   rules={["minLength", "capital", "match"]}
                   minLength={8}
-                  value={inputs.Pass}
-                  valueAgain={confirmPass}
+                  value={inputs.Password}
+                  valueAgain={confirmPassword}
               />
             </div>
           </div>
@@ -150,12 +150,13 @@ function Register() {
             <FormControl sx={{ m: 1, width: '25ch' }} variant="outlined">
               <InputLabel htmlFor="details">Additional Details</InputLabel>
               <OutlinedInput id="details" type="text" name="Details" className="registerTextSingle" label="Additional Details" multiline maxRows={3} required value={inputs.Details || ""} onChange={handleChange} onBlur={trimOnBlur}/>
+              <FormHelperText className="registerTextSingle">Enter details such as Country, City, Postal/Zip Code, etc.</FormHelperText>
             </FormControl>
           </div>
 
           <br/>
-
-          <input type="submit" value="Register" className="registerButton"></input>
+          
+          <input type="submit" value="Create Account" className="registerButton"></input>
         </form>
 
         <h4>Have an account?</h4>
