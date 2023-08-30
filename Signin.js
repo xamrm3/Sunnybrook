@@ -33,13 +33,12 @@ function Signin() {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    //check if inputs have all the required information and there is no empty input
+    //check if anthing in inputs is empty
     if (Object.values(inputs).some((x) => x === "")) {
       alert("Please fill in all the fields.")
       return;
     }
     
-    console.log(inputs);
     navigate("/Form");
   };
 

@@ -45,23 +45,24 @@ function Register() {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    //check if inputs have all the required information and there is no empty input
+    //check if anthing in inputs is empty
     if (Object.values(inputs).some((x) => x === "")) {
       alert("Please fill in all the fields.");
       return;
     }
 
+    //check that passwords match
     if (inputs.Password !== confirmPassword) {
       alert("Passwords do not match.");
       return;
     }
 
+    //check that the password has has the proper saftey measures 
     if (!/[A-Z]/.test(inputs.Password) || inputs.Password.length < 8){
       alert("Please check that all password requirements are met");
       return;
     }
 
-    console.log(inputs);
     navigate("/");
   };
 

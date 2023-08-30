@@ -48,7 +48,6 @@ function Form() {
     }
     delete inputs.otherMethod;
 
-    console.log(inputs);
   }
 
   return (
