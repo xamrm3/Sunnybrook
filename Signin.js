@@ -39,13 +39,6 @@ function Signin() {
       return;
     }
     
-    //const emailRe = new RegExp(/^([\w\d!#$%\^&*+\-=?_`{|}~]+\.)*[\w\d]+@[\w]+\.[\w]+$/, "gm");
-    //check if email is valid
-    // if (!emailRe.test(inputs.Email)) {
-    //   alert("Please enter a valid email.")
-    //   return;
-    // }
-    
     console.log(inputs);
     navigate("/Form");
   };

@@ -51,13 +51,6 @@ function Register() {
       return;
     }
 
-    // const emailRe = new RegExp(/^([\w\d!#$%\^&*+\-=?_`{|}~]+\.)*[\w\d]+@[\w\d]+\.[\w]+$/, "gm");
-    // //check if email is valid
-    // if (!emailRe.test(inputs.Email)) {
-    //   alert("Please enter a valid email.")
-    //   return;
-    // }
-
     if (inputs.Password !== confirmPassword) {
       alert("Passwords do not match.");
       return;

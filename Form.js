@@ -49,7 +49,6 @@ function Form() {
     delete inputs.otherMethod;
 
     console.log(inputs);
-    //window.location.reload();
   }
 
   return (
